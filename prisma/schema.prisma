@@ -1,0 +1,18 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Cpu {
+  id        Int      @id @default(autoincrement())
+  vendor    String
+  model     String
+  year      Int
+  cores     Int
+  threads   Int
+  createdAt DateTime @default(now())
+}
